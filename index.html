@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Dias Silva | Portfólio</title>
+    <meta name="description"
+        content="Portfólio de Mauricio Dias Silva — Desenvolvedor Full-Stack Django, especialista em IA, BCI, Hardware IoT e sistemas de impacto social.">
+    <meta name="keywords" content="Mauricio Dias Silva, Django, Python, IA, BCI, portfólio, desenvolvedor">
+    <meta property="og:title" content="Mauricio Dias Silva | Portfólio de Projetos">
+    <meta property="og:description"
+        content="Conheça os projetos de Mauricio: NeuroAcesso, Ghost Station, Corpo Humano Holístico e mais.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #030508;
+            --surface: #0d1117;
+            --surface2: #161b22;
+            --border: rgba(0, 245, 212, 0.12);
+            --cyan: #00f5d4;
+            --purple: #9d4edd;
+            --pink: #ff0055;
+            --text: #c9d1d9;
+            --text-dim: #6e7681;
+            --white: #f0f6fc;
+            --mono: 'JetBrains Mono', monospace;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==================== SCROLLBAR ==================== */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--cyan);
+            border-radius: 2px;
+        }
+
+        /* ==================== GRID BG ==================== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* ==================== NAV ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(3, 5, 8, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--mono);
+            font-size: 1.1rem;
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .nav-logo span {
+            color: var(--text-dim);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        /* ==================== SECTIONS ==================== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        /* ==================== HERO ==================== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 6rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--cyan);
+            background: rgba(0, 245, 212, 0.08);
+            border: 1px solid var(--border);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tag::before {
+            content: '> ';
+            opacity: 0.5;
+        }
+
+        .hero-name {
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -3px;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-name .highlight {
+            background: linear-gradient(135deg, var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-role {
+            font-size: 1.4rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            max-width: 600px;
+            font-size: 1.05rem;
+            color: var(--text);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: var(--cyan);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(0, 245, 212, 0.5);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--cyan);
+            font-family: var(--mono);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-top: 0.2rem;
+        }
+
+        /* ==================== ABOUT ==================== */
+        #sobre .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .about-text strong {
+            color: var(--cyan);
+        }
+
+        .domains {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .domain-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            transition: border-color 0.3s;
+        }
+
+        .domain-card:hover {
+            border-color: var(--cyan);
+        }
+
+        .domain-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .domain-card h4 {
+            font-size: 0.9rem;
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .domain-card p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* ==================== PROJECTS ==================== */
+        #projetos {
+            max-width: 1200px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 245, 212, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-cyan::before {
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+        }
+
+        .card-purple::before {
+            background: linear-gradient(90deg, var(--purple), var(--pink));
+        }
+
+        .card-green::before {
+            background: linear-gradient(90deg, #4ade80, var(--cyan));
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .icon-cyan {
+            background: rgba(0, 245, 212, 0.1);
+        }
+
+        .icon-purple {
+            background: rgba(157, 78, 221, 0.1);
+        }
+
+        .icon-green {
+            background: rgba(74, 222, 128, 0.1);
+        }
+
+        .icon-orange {
+            background: rgba(251, 146, 60, 0.1);
+        }
+
+        .icon-blue {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .icon-red {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            gap: 0.35rem;
+        }
+
+        .project-link:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+
+        .tag-highlight {
+            color: var(--cyan);
+            border-color: rgba(0, 245, 212, 0.3);
+        }
+
+        /* ==================== SKILLS ==================== */
+        #habilidades {
+            max-width: 1200px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .skill-group {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .skill-group h4 {
+            font-size: 0.85rem;
+            color: var(--cyan);
+            font-family: var(--mono);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-pill {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        /* ==================== CONTACT ==================== */
+        #contato {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-box p {
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            text-align: center;
+            padding: 2rem 5%;
+            border-top: 1px solid var(--border);
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer span {
+            color: var(--cyan);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            #sobre .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .domains {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .contact-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav>
+        <a href="#hero" class="nav-logo">mauricio<span>.dev</span></a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#habilidades">Skills</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a href="https://github.com/Mauricio-Dias-Silva" target="_blank" rel="noopener" class="btn-outline"
+            style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+            GitHub ↗
+        </a>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero">
+        <div class="hero-tag">Desenvolvedor Full-Stack · IA · Hardware</div>
+        <h1 class="hero-name">Mauricio<br><span class="highlight">Dias Silva</span></h1>
+        <p class="hero-role">Engenheiro de Software &amp; Criador de Sistemas</p>
+        <p class="hero-desc">
+            Construo plataformas que intersectam <strong style="color:var(--cyan)">inteligência artificial</strong>,
+            <strong style="color:var(--purple)">hardware IoT</strong> e
+            <strong style="color:#4ade80">impacto social</strong>.
+            De interfaces Cérebro-Máquina a LMS educacionais, cada projeto resolve um problema real.
+        </p>
+        <div class="hero-actions">
+            <a href="#projetos" class="btn-primary">Ver Projetos &darr;</a>
+            <a href="https://github.com/Mauricio-Dias-Silva" target="_blank" rel="noopener" class="btn-outline">GitHub
+                ↗</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Projetos ativos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Anos com Python/Django</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Projetos sociais</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Curiosidade</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOBRE ==================== -->
+    <section id="sobre">
+        <div class="section-label">// sobre mim</div>
+        <h2 class="section-title fade-in">Construindo o futuro,<br>um commit de cada vez.</h2>
+        <div class="about-grid fade-in">
+            <div class="about-text">
+                <p>
+                    Sou desenvolvedor <strong>Full-Stack Django</strong> com foco em sistemas que unem tecnologia de
+                    ponta e propósito real.
+                    Me apaixono por projetos que cruzam fronteiras: da tela para sensores físicos, da lógica pura para o
+                    impacto na vida das pessoas.
+                </p>
+                <p>
+                    Atuo desde plataformas de <strong>E-Learning e LMS</strong> corporativos até
+                    <strong>interfaces Cérebro-Máquina (BCI)</strong> open-source para acessibilidade,
+                    passando por sistemas de <strong>IoT com ESP32 e LoRa</strong> e análise de evidências por
+                    <strong>Gemini Vision AI</strong>.
+                </p>
+                <p>
+                    Estudante da <strong>UNIVESP</strong>. Idealizador da <strong>Associação Projeto Oficina</strong> em
+                    Carapicuíba-SP.
+                </p>
+            </div>
+            <div class="domains">
+                <div class="domain-card">
+                    <div class="domain-icon">🧠</div>
+                    <h4>IA & Machine Learning</h4>
+                    <p>Gemini Vision, RAG, LLMs aplicados</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">⚡</div>
+                    <h4>Hardware & IoT</h4>
+                    <p>ESP32, LoRa, MQTT, Energy Harvesting</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">🌐</div>
+                    <h4>Web Full-Stack</h4>
+                    <p>Django, DRF, REST APIs, Cloud Run</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">💚</div>
+                    <h4>Tecnologia Social</h4>
+                    <p>ONG, acessibilidade, educação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJETOS ==================== -->
+    <section id="projetos" style="max-width: 1200px; margin: 0 auto; padding: 5rem 5%;">
+        <div class="section-label">// projetos</div>
+        <h2 class="section-title fade-in">Cada linha de código<br>tem um propósito.</h2>
+        <div class="projects-grid">
+
+            <!-- NeuroAcesso -->
+            <div class="project-card card-cyan fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-cyan">🧠</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/neuroacesso" target="_blank" rel="noopener"
+                            class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Codex NeuroAcesso</h3>
+                <p class="project-desc">Interface Cérebro-Máquina (BCI) open-source para acessibilidade. Hardware HD-EEG
+                    com 32 canais + IA que traduz sinais neurais em comandos. POC Web-BCI nativo no browser via
+                    WebBluetooth API.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">BCI</span>
+                    <span class="tag">WebBluetooth</span>
+                    <span class="tag">Canvas EEG</span>
+                    <span class="tag">Acessibilidade</span>
+                    <span class="tag">UNIVESP</span>
+                </div>
+            </div>
+
+            <!-- Ghost Station -->
+            <div class="project-card card-purple fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-purple">👻</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/ghost_station" target="_blank" rel="noopener"
+                            class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Ghost Station</h3>
+                <p class="project-desc">Sistema de investigação de anomalias com câmera IP, Gemini Vision para análise
+                    estruturada em JSON, filtro autêntico de Night Vision (OpenCV), suporte a Cloud Storage e detecção
+                    de padrões paranormais.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">Gemini Vision</span>
+                    <span class="tag">OpenCV</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">Cloud Run</span>
+                    <span class="tag">Night Vision</span>
+                </div>
+            </div>
+
+            <!-- Corpo Humano Holístico -->
+            <div class="project-card card-cyan fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-purple">🔬</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/corpo_humano_holistico" target="_blank"
+                            rel="noopener" class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Corpo Humano Holístico</h3>
+                <p class="project-desc">Plataforma de saúde integrativa com Holograma 3D anatômico, Galáxia Neural RAG,
+                    acesso a base PubMed e Oracle IA para análise do corpo humano. Estética Clinical Sci-Fi.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">RAG / IA</span>
+                    <span class="tag">PubMed API</span>
+                    <span class="tag">Three.js</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">Feather Icons</span>
+                </div>
+            </div>
+
+            <!-- EduFuturo -->
+            <div class="project-card card-green fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-blue">🎓</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/edufuturo" target="_blank" rel="noopener"
+                            class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">EduFuturo LMS</h3>
+                <p class="project-desc">Plataforma de ensino completa (LMS) com módulos de gamificação, analytics de
+                    aprendizagem, assessments e certificados. Suporte a Cloud Storage para aulas. Nível Coursera/Udemy
+                    Business.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">Django LMS</span>
+                    <span class="tag">DRF</span>
+                    <span class="tag">Cloud Storage</span>
+                    <span class="tag">Gamificação</span>
+                    <span class="tag">Analytics</span>
+                </div>
+            </div>
+
+            <!-- Gerador de Resíduos -->
+            <div class="project-card card-green fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-green">♻️</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/gerador-de-residuos" target="_blank"
+                            rel="noopener" class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Gerador de Resíduos</h3>
+                <p class="project-desc">Sistema de gamificação para reciclagem. Usuários acumulam pontos ao registrar
+                    resíduos (Latinha=15pts, Ferro=20pts) e trocam por recompensas em catálogo digital. Impacto ESG
+                    real.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">Gamificação</span>
+                    <span class="tag">Sustentabilidade</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">DRF API</span>
+                </div>
+            </div>
+
+            <!-- Scalabis -->
+            <div class="project-card card-cyan fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-orange">⚙️</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/scalabis" target="_blank" rel="noopener"
+                            class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Scalabis CMS</h3>
+                <p class="project-desc">CMS profissional Django com painel administrativo avançado, gestão de conteúdo
+                    dinâmico, sistema de SEO integrado e deploy via Cloud Run + Dockerfile. Arquitetura escalável de
+                    produção.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">CMS</span>
+                    <span class="tag">Cloud Run</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">WhiteNoise</span>
+                </div>
+            </div>
+
+            <!-- Projeto Sarah -->
+            <div class="project-card card-purple fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-red">💗</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/projeto-sarah" target="_blank" rel="noopener"
+                            class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Projeto Sarah</h3>
+                <p class="project-desc">Plataforma Django para ONG de apoio a meninas grávidas em situação de
+                    vulnerabilidade. Cadastro de beneficiárias e colaboradores, transparência financeira pública.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">ONG</span>
+                    <span class="tag">Impacto Social</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">UNIVESP</span>
+                </div>
+            </div>
+
+            <!-- Energia Livre -->
+            <div class="project-card card-green fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-orange">⚡</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva" target="_blank" rel="noopener"
+                            class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Energia Livre (Malha IoT)</h3>
+                <p class="project-desc">Sistema de Energy Harvesting com ESP32 + LoRa para monitoramento de malha
+                    energética mesh. Firmware em C++ com broker MQTT e modelagem física de captação máxima de energia.
+                </p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">ESP32</span>
+                    <span class="tag">LoRa</span>
+                    <span class="tag">MQTT</span>
+                    <span class="tag">Física</span>
+                    <span class="tag">IoT</span>
+                </div>
+            </div>
+
+            <!-- Associação Projeto Oficina -->
+            <div class="project-card card-cyan fade-in">
+                <div class="project-header">
+                    <div class="project-icon icon-green">🏠</div>
+                    <div class="project-links">
+                        <a href="https://github.com/Mauricio-Dias-Silva/associacao-projeto-oficina" target="_blank"
+                            rel="noopener" class="project-link">GitHub ↗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Associação Projeto Oficina</h3>
+                <p class="project-desc">Site institucional para ONG real em Carapicuíba-SP. Integração com formulário de
+                    contato, página de doação, missão e valores. Deploy no Fly.io com suporte a WhatsApp Web direto.</p>
+                <div class="project-tags">
+                    <span class="tag tag-highlight">ONG Real</span>
+                    <span class="tag">Carapicuíba-SP</span>
+                    <span class="tag">Fly.io</span>
+                    <span class="tag">Django</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section id="habilidades" style="max-width: 1200px; margin: 0 auto; padding: 5rem 5%;">
+        <div class="section-label">// stack técnica</div>
+        <h2 class="section-title fade-in">Ferramentas que<br>transformam ideias em realidade.</h2>
+        <div class="skills-grid fade-in">
+            <div class="skill-group">
+                <h4>Back-End</h4>
+                <div class="skill-list">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">Django</span>
+                    <span class="skill-pill">DRF</span>
+                    <span class="skill-pill">Celery</span>
+                    <span class="skill-pill">PostgreSQL</span>
+                    <span class="skill-pill">SQLite</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>IA & Dados</h4>
+                <div class="skill-list">
+                    <span class="skill-pill">Gemini AI</span>
+                    <span class="skill-pill">OpenCV</span>
+                    <span class="skill-pill">RAG</span>
+                    <span class="skill-pill">WebBluetooth</span>
+                    <span class="skill-pill">Canvas API</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Hardware & IoT</h4>
+                <div class="skill-list">
+                    <span class="skill-pill">ESP32</span>
+                    <span class="skill-pill">LoRa</span>
+                    <span class="skill-pill">MQTT</span>
+                    <span class="skill-pill">Arduino C++</span>
+                    <span class="skill-pill">BLE</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Front-End</h4>
+                <div class="skill-list">
+                    <span class="skill-pill">HTML5</span>
+                    <span class="skill-pill">CSS3</span>
+                    <span class="skill-pill">JavaScript</span>
+                    <span class="skill-pill">Bootstrap 5</span>
+                    <span class="skill-pill">Canvas 2D</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Cloud & DevOps</h4>
+                <div class="skill-list">
+                    <span class="skill-pill">Google Cloud Run</span>
+                    <span class="skill-pill">Fly.io</span>
+                    <span class="skill-pill">Docker</span>
+                    <span class="skill-pill">WhiteNoise</span>
+                    <span class="skill-pill">Gunicorn</span>
+                    <span class="skill-pill">GitHub Actions</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Outros</h4>
+                <div class="skill-list">
+                    <span class="skill-pill">Git</span>
+                    <span class="skill-pill">dj-database-url</span>
+                    <span class="skill-pill">Pillow</span>
+                    <span class="skill-pill">SEO</span>
+                    <span class="skill-pill">Open Graph</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTATO ==================== -->
+    <section id="contato" style="padding: 5rem 5%;">
+        <div class="section-label" style="text-align:center">// contato</div>
+        <h2 class="section-title fade-in" style="text-align:center">Vamos construir algo<br>incrível juntos?</h2>
+        <div class="contact-box fade-in" style="max-width: 600px; margin: 2rem auto 0;">
+            <p>Aberto a colaborações, projetos open-source e conversas sobre tecnologia, IA e impacto social. Me
+                encontre onde preferir:</p>
+            <div class="contact-links">
+                <a href="https://github.com/Mauricio-Dias-Silva" target="_blank" rel="noopener" class="btn-primary"
+                    style="background: var(--surface2); color: var(--white); box-shadow: none; border: 1px solid var(--border);">
+                    ⑂ GitHub
+                </a>
+                <a href="mailto:mauricio@dias.eti.br" class="btn-outline">
+                    ✉ Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <p>Feito com <span>♥</span> por <span>Mauricio Dias Silva</span> — <span>2026</span></p>
+    </footer>
+
+    <script>
+        // Fade-in via IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
