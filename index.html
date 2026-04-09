@@ -634,11 +634,34 @@
             <li><a href="#habilidades">Skills</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
-        <a href="https://github.com/Mauricio-Dias-Silva" target="_blank" rel="noopener" class="btn-outline"
-            style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
-            GitHub ↗
-        </a>
+        <div style="display:flex; gap:10px;">
+            <button onclick="document.getElementById('aura-modal').style.display='flex'" class="btn-primary" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; border:none; cursor:pointer;">
+                <span class="project-icon icon-cyan" style="width:20px; height:20px; font-size:12px; margin-right:5px; display:inline-flex;">🧠</span> Aura / Twin
+            </button>
+            <a href="https://github.com/Mauricio-Dias-Silva" target="_blank" rel="noopener" class="btn-outline"
+                style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+                GitHub ↗
+            </a>
+        </div>
     </nav>
+
+    <!-- AURA TWIN MODAL -->
+    <div id="aura-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+        <div style="background:var(--surface); border:1px solid var(--cyan); border-radius:12px; width:90%; max-width:500px; overflow:hidden; box-shadow:0 0 30px rgba(0,245,212,0.2);">
+            <div style="background:rgba(0,245,212,0.1); padding:1rem; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+                <h3 style="font-family:var(--mono); color:var(--cyan); font-size:1rem;">> aura_twin_agent --model gemini-2.5-flash-lite</h3>
+                <button onclick="document.getElementById('aura-modal').style.display='none'" style="background:transparent; border:none; color:var(--text); font-size:1.5rem; cursor:pointer;">&times;</button>
+            </div>
+            <div id="aura-chat-box" style="padding:1.5rem; height:300px; overflow-y:auto; font-family:var(--mono); font-size:0.9rem; line-height:1.6; color:var(--text);">
+                <div style="margin-bottom:1rem; color:var(--purple);">> SYSTEM_READY</div>
+                <div style="margin-bottom:1rem;">Olá! Eu sou a Aura, Gêmea Digital Neural do Maurício. Fui treinada (via Gemini) com toda a stack, código e filosofia dele. No momento, o backend de inferência requer autorização para não expor as chaves API publicamente, mas sinta-se livre para explorar os projetos!</div>
+            </div>
+            <div style="padding:1rem; border-top:1px solid var(--border); display:flex; gap:10px;">
+                <input type="text" placeholder="Pergunte sobre as skills do Maurício..." style="flex:1; background:var(--bg); border:1px solid var(--border); color:var(--white); padding:0.8rem; border-radius:6px; font-family:var(--mono);" disabled>
+                <button class="btn-primary" style="padding:0.8rem 1.5rem;" disabled>Envio RAG</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ==================== HERO ==================== -->
     <section id="hero">
